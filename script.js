@@ -7,11 +7,14 @@ const grid = document.getElementById('grid')
 
 // Funzione per creare le celle
 
-function getCell() {
+function getCell(content) {
     // Creo una cella
     const cell = document.createElement('div');
     // Aggiungo la classe cell al div creato
     cell.className = 'cell';
+
+    // Aggiungo il contenuto alla cella (aggiungo i numeri chiesti)
+    cell.append(content);
     // Restituisco all'esterno la cella creata
     return cell;
 }
@@ -25,10 +28,13 @@ button.addEventListener('click', function(){
 const cells = 100;
 
 // Per ogni cella che voglio creare:
-for (let i = 0; i < cells; i++) {
+for (let i = 1; i <= cells; i++) {
 
-    // Creo una cella
-    const cell = getCell();
+    // Creo una cella (richiamando la funzione creata all'inizio)
+    const cell = getCell(i);
+
+    // Aggiungo il contenuto alla cella (richiamando la funzione creata e che ho modificato)
+    const content = cells[i];
 
     // Inserisco la cella nel DOM
     grid.appendChild(cell);
